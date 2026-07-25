@@ -1,37 +1,36 @@
 let instructionsInput = document.querySelector("#user-instruction");
 let apiKey = "1e1cb74ecefd5a7o05tdff4f07af3b19";
-let poemElement = document.querySelector("#poem");
+let recipeElement = document.querySelector("#recipe");
 
-function generatePoem(event) {
+function generateRecipe(event) {
   event.preventDefault();
 
-  let topic = instructionsInput.value;
-  let prompt = `Write a South African poem about ${topic}`;
+  let prompt = instructionsInput.value;
   let context =
-    "South African poetry and separate each line with a <br/> and only contain four lines of the poem Sign the poem with 'SheCodes AI'; inside a <strong/> elements Do not include the title";
+    "Respond directly and creatively to the user's request on the recipe and the quote. If the request is for a recipe, list the ingredients, then the steps, then add a rough estimated cost to make it in South African Rand (ZAR) on its own line before the sign-off. Separate each line or list item with a <br/>. Sign the response with 'SheCodes AI' inside a <strong/> element. Do not include a title unless the user specifically asks for one.";
 
   let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(
     prompt
   )}&context=${encodeURIComponent(context)}&key=${apiKey}`;
 
-  poemElement.classList.remove("hidden");
-  poemElement.innerHTML = `<div class="generating">⏳ Generating your South African poem...</div>`;
+  recipeElement.classList.remove("hidden");
+  recipeElement.innerHTML = `<div class="generating">⏳ Generating your recipe...</div>`;
 
-  axios.get(apiURL).then(displayPoem);
+  axios.get(apiURL).then(displayRecipe);
 }
 
-function displayPoem(response) {
-  let poemText = response.data.answer;
+function displayRecipe(response) {
+  let recipeText = response.data.answer;
 
-  poemElement.innerHTML = `<div id="Poem"></div>`;
+  recipeElement.innerHTML = `<div id="Recipe"></div>`;
 
-  let typewriter = new Typewriter("#Poem", {
+  let typewriter = new Typewriter("#Recipe", {
     delay: 1,
     cursor: "",
   });
 
-  typewriter.typeString(poemText).start();
+  typewriter.typeString(recipeText).start();
 }
 
-let poemFormElement = document.querySelector("#poem-generator-form");
-poemFormElement.addEventListener("submit", generatePoem);
+let recipeFormElement = document.querySelector("#recipe-generator-form");
+recipeFormElement.addEventListener("submit", generateRecipe);
