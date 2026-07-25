@@ -1,6 +1,33 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   background-color: #ffffc5;
+  background-image: radial-gradient(
+      circle at 10% 15%,
+      rgba(255, 224, 71, 0.55) 0%,
+      rgba(255, 224, 71, 0) 40%
+    ),
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(212, 112, 162, 0.45) 0%,
+      rgba(212, 112, 162, 0) 45%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(123, 63, 145, 0.4) 0%,
+      rgba(123, 63, 145, 0) 45%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(200, 40, 80, 0.4) 0%,
+      rgba(200, 40, 80, 0) 45%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 244, 150, 0.3) 0%,
+      rgba(255, 244, 150, 0) 60%
+    );
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 a {
@@ -8,7 +35,7 @@ a {
 }
 
 .container {
-  margin: 120px auto;
+  margin: 80px auto;
   max-width: 600px;
 }
 
@@ -17,7 +44,18 @@ h1 {
   font-size: 45px;
   font-weight: 800;
   line-height: 1.5;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.cake-illustration {
+  max-width: 320px;
+  margin: 0 auto 30px;
+}
+
+.cake-illustration svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .form-container {
@@ -47,6 +85,10 @@ form {
   border-radius: 50px;
   line-height: 20px;
   color: #6b6b6b;
+  resize: none;
+  height: 20px;
+  font-family: inherit;
+  overflow: hidden;
 }
 
 .submit-button {
@@ -60,7 +102,7 @@ form {
   padding: 14px 24px;
 }
 
-.poem {
+.recipe {
   background-color: #fff;
   font-size: 18px;
   padding: 20px;
@@ -69,7 +111,6 @@ form {
   box-shadow: 0px 20px 60px rgba(65, 50, 100, 0.07);
   border-radius: 10px;
 }
-
 .generating {
   animation: blink 1s infinite;
   font-size: 1.1em;
