@@ -6,13 +6,10 @@ body {
 a {
   color: #d470a2;
 }
+
 .container {
   margin: 120px auto;
   max-width: 600px;
-}
-
-header {
-  margin-bottom: 30px;
 }
 
 h1 {
@@ -20,20 +17,28 @@ h1 {
   font-size: 45px;
   font-weight: 800;
   line-height: 1.5;
-}
-
-main {
   margin-bottom: 30px;
 }
 
-form {
-  padding: 30px;
+.form-container {
+  padding: 15px 20px;
+  margin-bottom: 30px;
   background-color: beige;
   box-shadow: 0px 20px 60px rgba(65, 50, 100, 0.07);
   border-radius: 10px;
-  display: flex;
-  margin-bottom: 30px;
 }
+
+form {
+  display: flex;
+}
+
+.hint {
+  line-height: 1.5;
+  margin-top: 5px;
+  opacity: 0.6;
+  font-size: 12px;
+}
+
 .instructions {
   padding: 16px;
   border: 1px solid rgba(107, 107, 107);
@@ -54,15 +59,36 @@ form {
   border-radius: 50px;
   padding: 14px 24px;
 }
+
 .poem {
   background-color: #fff;
   font-size: 18px;
   padding: 20px;
   line-height: 20px;
-  border-left: 3px solid#d470a2;
+  border-left: 3px solid #d470a2;
   box-shadow: 0px 20px 60px rgba(65, 50, 100, 0.07);
   border-radius: 10px;
 }
+
+.generating {
+  animation: blink 1s infinite;
+  font-size: 1.1em;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 footer {
   text-align: center;
   font-size: 13px;
